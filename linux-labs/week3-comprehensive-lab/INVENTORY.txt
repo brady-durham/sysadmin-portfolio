@@ -1,0 +1,15 @@
+   275128      0 -rw-rw-r--   1 brady    brady           0 Jan 24 08:32 ./INVENTORY.txt
+   275122      0 -rw-rw-r--   1 brady    brady           0 Jan 24 08:09 ./current_data/backup_2024.tar.gz
+   275114      4 -rw-rw-r--   1 brady    brady          16 Jan 24 07:33 ./current_data/sales_2024.txt
+   275115      4 -rw-rw-r--   1 brady    brady          14 Jan 24 07:34 ./temp/budget.txt
+   275119     20 -rw-rw-r--   1 brady    brady       16692 Jan 24 07:35 ./logs/system_large.log
+   275117      4 -rw-rw-r--   1 brady    brady          16 Jan 24 07:35 ./logs/error_small.log
+   275127      0 -rw-rw-r--   1 brady    brady           0 Jan 24 07:45 ./logs/empty.log
+   275118      4 -rw-rw-r--   1 brady    brady        4092 Jan 24 07:35 ./logs/access_medium.log
+   275120      0 -rw-rw-r--   1 brady    brady           0 Jan 24 07:39 ./archives/backup_2022.tar.gz
+   275121      0 -rw-rw-r--   1 brady    brady           0 Jan 24 07:40 ./archives/backup_2023.tar.gz
+   275124      4 -rw-rw-r--   1 brady    brady          12 Jan 24 07:44 ./scripts/monitor.sh
+   275123      4 -rw-rw-r--   1 brady    brady          35 Jan 24 07:44 ./scripts/cleanup.sh
+   275130      4 -rw-rw-r--   1 brady    brady         572 Jan 24 08:27 ./CLEANUP_REPORT.md
+   275116      4 -rw-rw-r--   1 brady    brady          16 Jan 24 07:34 ./old_data/employees.csv
+   271151      4 -rw-rw-r--   1 brady    brady          16 Jan 24 07:31 ./old_data/report_2023.txt
