@@ -1,0 +1,6 @@
+2026-01-31 08:45:12 ERROR Database connection failed: timeout
+2026-01-31 09:15:44 ERROR Failed to write to disk: permission denied
+2026-01-31 10:00:19 ERROR API endpoint returned 500 error
+2026-01-31 08:15:22 WARNING High memory usage detected: 78%
+2026-01-31 09:30:21 WARNING Slow response time: 5.2 seconds
+2026-01-31 10:15:37 WARNING SSL certificate expires in 7 days
