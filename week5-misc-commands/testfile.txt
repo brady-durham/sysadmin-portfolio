@@ -1,3 +1,0 @@
-This is a test file for word count practice
-This is line two
-This is line three
