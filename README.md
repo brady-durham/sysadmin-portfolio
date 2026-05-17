@@ -1,3 +1,4 @@
+![Banner](./brady_durham_banner.svg)
 # Brady Durham — Systems Administration Portfolio
 
 ## About
