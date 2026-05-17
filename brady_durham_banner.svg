@@ -1,0 +1,13 @@
+<svg width="1280" height="320" viewBox="0 0 1280 320" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Brady Durham GitHub Banner</title>
+  <desc>GitHub profile banner for Brady Durham, IT Support and Sysadmin</desc>
+  <rect width="1280" height="320" fill="#0D1117"/>
+  <rect x="0" y="0" width="6" height="320" fill="#238636"/>
+  <text x="80" y="110" font-family="monospace" font-size="22" fill="#8B949E">~/brady-durham $</text>
+  <text x="80" y="178" font-family="monospace" font-size="64" font-weight="700" fill="#F0F6FC">Brady Durham</text>
+  <text x="80" y="224" font-family="monospace" font-size="28" fill="#8B949E">IT Support  |  Help Desk  |  Sysadmin</text>
+  <text x="80" y="272" font-family="monospace" font-size="20" fill="#238636">PHD Cert (In Progress)  ·  Nashville, TN  ·  github.com/brady-durham/sysadmin-portfolio</text>
+  <rect x="1090" y="90" width="140" height="30" rx="6" fill="#238636" opacity="0.2"/>
+  <text x="1160" y="111" font-family="monospace" font-size="18" fill="#238636" text-anchor="middle">● ONLINE</text>
+  <text x="1180" y="210" font-family="monospace" font-size="90" fill="#238636" opacity="0.06">$_</text>
+</svg>
