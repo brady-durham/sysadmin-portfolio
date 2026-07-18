@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brady Durham — Systems Administration Portfolio</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-panel: #11161d;
+    --border: #21262d;
+    --green: #3fb950;
+    --green-dim: #2ea043;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --amber: #d29922;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(13,17,23,0.92);
+    backdrop-filter: blur(6px);
+    z-index: 10;
+  }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; }
+  .prompt-tag { color: var(--green); font-weight: 600; }
+  nav a { color: var(--text-dim); margin-left: 22px; font-size: 13px; }
+  nav a:hover { color: var(--green); text-decoration: none; }
+
+  .hero {
+    padding: 70px 0 50px;
+    border-bottom: 1px solid var(--border);
+  }
+  .term-window {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 12px 40px rgba(0,0,0,0.4);
+  }
+  .term-bar {
+    background: #161b22;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; }
+  .dot.r { background: #ff5f56; }
+  .dot.y { background: #ffbd2e; }
+  .dot.g { background: #27c93f; }
+  .term-bar span { margin-left: 10px; color: var(--text-dim); font-size: 12px; }
+  .term-body { padding: 26px 28px 30px; }
+  .term-body .line1 { color: var(--text-dim); font-size: 13px; }
+  .term-body .name {
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+    margin: 6px 0 4px;
+    letter-spacing: -0.5px;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--green);
+    border: 1px solid var(--green-dim);
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-left: 12px;
+    vertical-align: middle;
+  }
+  .status::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 6px var(--green);
+  }
+  .role { color: var(--text-dim); font-size: 15px; margin-top: 6px; }
+  .meta-line { color: var(--green-dim); font-size: 13px; margin-top: 14px; }
+  .meta-line .sep { color: var(--border); margin: 0 8px; }
+  .blink {
+    display: inline-block;
+    width: 8px; height: 16px;
+    background: var(--green);
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .eyebrow {
+    color: var(--green);
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .eyebrow::before { content: "$ "; color: var(--text-dim); }
+  h2 { color: #fff; font-size: 22px; margin: 6px 0 26px; font-weight: 600; }
+
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+    transition: border-color .15s ease;
+  }
+  .card:hover { border-color: var(--green-dim); }
+  .card h3 { color: #fff; font-size: 15px; margin-bottom: 8px; }
+  .card p { color: var(--text-dim); font-size: 13.5px; margin-bottom: 12px; }
+  .card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .tag {
+    font-size: 11px;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .card a.repo-link { font-size: 13px; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .skill-group h4 {
+    color: var(--amber);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .skill-group ul { list-style: none; }
+  .skill-group li {
+    color: var(--text);
+    font-size: 13.5px;
+    padding: 3px 0;
+  }
+  .skill-group li::before { content: "› "; color: var(--green-dim); }
+
+  .cert-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .cert-row .cname { color: #fff; font-size: 14px; }
+  .cert-status {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .cert-status.progress { color: var(--amber); border: 1px solid var(--amber); }
+  .cert-status.planned { color: var(--text-dim); border: 1px solid var(--border); }
+
+  footer {
+    padding: 40px 0 60px;
+    text-align: center;
+  }
+  footer p { color: var(--text-dim); font-size: 13px; }
+  footer .contact-links { margin-top: 14px; display: flex; justify-content: center; gap: 22px; }
+
+  @media (max-width: 640px) {
+    .grid, .skills-grid { grid-template-columns: 1fr; }
+    .term-body .name { font-size: 26px; }
+    nav a { margin-left: 14px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="prompt-tag">brady@durham:~$</span>
+    <nav>
+      <a href="#projects">projects</a>
+      <a href="#skills">skills</a>
+      <a href="#certs">certs</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="term-window">
+      <div class="term-bar">
+        <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+        <span>brady@durham — 80x24</span>
+      </div>
+      <div class="term-body">
+        <div class="line1">~/brady-durham $ whoami</div>
+        <div class="name">Brady Durham <span class="status">online</span></div>
+        <div class="role">IT Support · Help Desk · Systems Administration</div>
+        <div class="meta-line">
+          CCNA (in progress) <span class="sep">|</span> Nashville, TN <span class="sep">|</span> github.com/brady-durham
+        </div>
+        <div class="line1" style="margin-top:22px;">~/brady-durham $ <span class="blink"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">cat about.txt</div>
+    <h2>About</h2>
+    <p style="color: var(--text-dim); max-width: 640px;">
+      Transitioning into IT with hands-on experience built from the ground up in a home lab —
+      Active Directory, Linux administration, virtualization, and ticketing systems.
+      Currently working through CCNA certification, with Red Hat (RHCSA/RHCE) next on the roadmap.
+      Every project below is something I built, broke, documented, and fixed myself.
+    </p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">ls ~/projects</div>
+    <h2>Projects</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>Proxmox Home Lab</h3>
+        <p>Dell OptiPlex running Proxmox VE hosting a Windows Server 2022 domain controller, Ubuntu Server, Windows 11, and network emulation labs — the foundation for everything else here.</p>
+        <div class="tags">
+          <span class="tag">Proxmox VE</span>
+          <span class="tag">Active Directory</span>
+          <span class="tag">Virtualization</span>
+        </div>
+        <a class="repo-link" href="https://github.com/brady-durham/sysadmin-portfolio" target="_blank">View repo →</a>
+      </div>
+
+      <div class="card">
+        <h3>Peppermint Ticketing Deployment</h3>
+        <p>Deployed a help desk ticketing system via Docker Compose on Ubuntu Server — including real troubleshooting of Docker Compose version conflicts and PostgreSQL container crashes.</p>
+        <div class="tags">
+          <span class="tag">Docker</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Ticketing</span>
+        </div>
+        <a class="repo-link" href="https://github.com/brady-durham/sysadmin-portfolio" target="_blank">View repo →</a>
+      </div>
+
+      <div class="card">
+        <h3>Linux Labs</h3>
+        <p>Documented Linux administration work — user/permission management, I/O redirection, and daily system reporting scripts written in Bash.</p>
+        <div class="tags">
+          <span class="tag">Bash</span>
+          <span class="tag">Linux Admin</span>
+          <span class="tag">Scripting</span>
+        </div>
+        <a class="repo-link" href="https://github.com/brady-durham/sysadmin-portfolio" target="_blank">View repo →</a>
+      </div>
+
+      <div class="card">
+        <h3>CCNA Labs (EVE-NG)</h3>
+        <p>Cisco network emulation labs covering VLANs, trunking, and router-on-a-stick topologies — built and documented as CCNA coursework progresses.</p>
+        <div class="tags">
+          <span class="tag">EVE-NG</span>
+          <span class="tag">Networking</span>
+          <span class="tag">In Progress</span>
+        </div>
+        <a class="repo-link" href="https://github.com/brady-durham/sysadmin-portfolio" target="_blank">View repo →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">cat skills.conf</div>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Systems</h4>
+        <ul>
+          <li>Windows Server 2022</li>
+          <li>Active Directory / Group Policy</li>
+          <li>Ubuntu / Linux Administration</li>
+          <li>Windows 10/11</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Networking</h4>
+        <ul>
+          <li>TCP/IP, DNS, DHCP</li>
+          <li>VLANs, Trunking, VTP</li>
+          <li>Subnetting</li>
+          <li>CDP/LLDP</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Tools</h4>
+        <ul>
+          <li>Docker & Docker Compose</li>
+          <li>Proxmox VE / EVE-NG</li>
+          <li>Git / GitHub</li>
+          <li>Microsoft 365</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="wrap">
+    <div class="eyebrow">cat certifications.log</div>
+    <h2>Certifications</h2>
+    <div class="cert-row">
+      <span class="cname">CCNA — Cisco Certified Network Associate</span>
+      <span class="cert-status progress">in progress</span>
+    </div>
+    <div class="cert-row">
+      <span class="cname">TCM Security — Practical Help Desk</span>
+      <span class="cert-status planned" style="color: var(--green); border-color: var(--green-dim);">completed 2025</span>
+    </div>
+    <div class="cert-row">
+      <span class="cname">RHCSA — Red Hat Certified System Administrator</span>
+      <span class="cert-status planned">planned</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>~/brady-durham $ echo "let's connect"</p>
+    <div class="contact-links">
+      <a href="mailto:Brady.Durham@protonmail.com">Brady.Durham@protonmail.com</a>
+      <a href="https://github.com/brady-durham" target="_blank">github.com/brady-durham</a>
+      <a href="https://linkedin.com/in/brady-a-durham" target="_blank">linkedin.com/in/brady-a-durham</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
